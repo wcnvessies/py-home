@@ -52,3 +52,8 @@ MANIFEST
 .venv*/
 .conda*/
 .python-version
+*.pkl
+*.env
+src/py_home/gis/*
+src/py_home/html/*
+
