@@ -16,7 +16,7 @@ def rounddown(x, nearest_value):
 def connect_database():
     user = os.getenv('USER_DB')
     password = os.getenv("PASSWORD_DB")
-    host = "192.168.178.100"
+    host = os.getenv("HOST_DB")
     port = "3306"
     dbname = "home"
 
