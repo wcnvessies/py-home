@@ -1,5 +1,7 @@
+import base64
 import math
 import os
+from datetime import datetime
 from urllib.parse import quote_plus
 
 import sqlalchemy
@@ -14,6 +16,18 @@ def roundup(x, nearest_value):
 
 def rounddown(x, nearest_value):
     return int(math.floor(x / nearest_value)) * nearest_value
+
+
+def date_diff_in_seconds(dt2, dt1):
+    timedelta = dt2 - dt1
+    return timedelta.days * 24 * 3600 + timedelta.seconds
+
+
+def dhms_from_seconds(seconds):
+    minutes, seconds = divmod(seconds, 60)
+    hours, minutes = divmod(minutes, 60)
+    days, hours = divmod(hours, 24)
+    return (days, hours, minutes, seconds)
 
 
 def connect_database():
@@ -33,10 +47,19 @@ def popup_html(df):
     project_name = df["name"]
     company = df["company"]
     project_number = str(df["project_number"]).replace("nan", "")
-    year = df["year"]
+    year = df["years"]
     location = f"{df['city']}, {df['country']}"
     vessels = str(df["vessels"]).replace("nan", "")
     description = df["description"]
+    logo = df["company_logo"]
+    tools = df["tools_all"]
+    if df["days_total"] == 0:
+        days = ""
+    else:
+        days = int(df["days_total"])
+    type_support = df["type"]
+
+    encoded = base64.b64encode(open(os.path.join(os.getcwd(), "img", logo), "rb").read())
 
     left_col_color = "#19a7bd"
     right_col_color = "#f2f0d3"
@@ -45,8 +68,9 @@ def popup_html(df):
         """<!DOCTYPE html>
     <html>
     <head>
+    <img src="data:image/png;base64,{}" style="width:250px;">
     <h4 style="margin-bottom:10"; width="200px"><b>{}</b></h4>""".format(
-            project_name
+            encoded.decode("UTF-8"), project_name
         )
         + """
     </head>
@@ -79,6 +103,15 @@ def popup_html(df):
         + """;">{}</td>""".format(year)
         + """
     </tr>
+        <tr>
+    <td style="width: 150px;background-color: """
+        + left_col_color
+        + """;"><span style="color: #ffffff;">days</span></td>
+    <td style="width: 350px;background-color: """
+        + right_col_color
+        + """;">{}</td>""".format(days)
+        + """
+    </tr>
     <tr>
     <td style="width: 150px;background-color: """
         + left_col_color
@@ -86,6 +119,24 @@ def popup_html(df):
     <td style="width: 350px;background-color: """
         + right_col_color
         + """;">{}</td>""".format(location)
+        + """
+    </tr>
+        <tr>
+    <td style="width: 150px;background-color: """
+        + left_col_color
+        + """;"><span style="color: #ffffff;">type</span></td>
+    <td style="width: 350px;background-color: """
+        + right_col_color
+        + """;">{}</td>""".format(type_support)
+        + """
+    </tr>
+        <tr>
+    <td style="width: 150px;background-color: """
+        + left_col_color
+        + """;"><span style="color: #ffffff;">tools</span></td>
+    <td style="width: 350px;background-color: """
+        + right_col_color
+        + """;">{}</td>""".format(tools)
         + """
     </tr>
     <tr>
