@@ -2,7 +2,7 @@
 
 Map with carried out porjects.
 
-<iframe src="/src/py_home/hrml/projects.html" height="500" width="500"></iframe>
+<iframe src="/src/py_home/html/projects.html" height="500" width="500"></iframe>
 
 *Click picture to display full map*
 
