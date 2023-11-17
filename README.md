@@ -39,9 +39,7 @@ py-home
 
 A longer description of your project goes here...
 
-<p align="left">
-  <a href="https://wcnvessies.github.io/py-home//src/py_home/html/projects.html" target="_blank"><img src="/src/py_home/img/readme.png" width="600" title="See Map"></a>
-</p>
+<iframe src="/src/py_home/hrml/projects.html" height="500" width="500"></iframe>
 
 *Click picture to display full map*
 
