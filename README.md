@@ -40,7 +40,7 @@ py-home
 A longer description of your project goes here...
 
 <p align="left">
-  <a href="https://github.com/wcnvessies/py-home/blob/master/src/py_home/html/projects.html" target="_blank"><img src="/src/py_home/img/readme.png" width="600" title="See Map"></a>
+  <a href="/src/py_home/html/projects.html" target="_blank"><img src="/src/py_home/img/readme.png" width="600" title="See Map"></a>
 </p>
 
 *Click picture to display full map*
