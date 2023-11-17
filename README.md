@@ -1,10 +1,10 @@
 # Projects Map
 
-Map with carried out porjects.
+Map with carried out projects.
 
 <iframe src="/src/py_home/html/projects.html" height="500" width="500"></iframe>
 
-*Click picture to display full map*
+You can explore this map [as its own web page here](projects.html).
 
 .. _pyscaffold-notes:
 
