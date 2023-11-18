@@ -56,20 +56,18 @@ def popup_html(df):
     days = "" if df["days_total"] == 0 else int(df["days_total"])
     type_support = df["type"]
 
-    # encoded = base64.b64encode(open(os.path.join(os.getcwd(), "img", logo), "rb").read())
+    encoded = base64.b64encode(open(os.path.join(os.getcwd(), "img", logo), "rb").read())
 
     left_col_color = "#19a7bd"
     right_col_color = "#f2f0d3"
-
-    # <img src="data:image/png;base64,{}" style="width:250px;">
-    # encoded.decode("UTF-8")
 
     html = (
         """<!DOCTYPE html>
     <html>
     <head>
+    <img src="data:image/png;base64,{}" style="width:250px;">
     <h4 style="margin-bottom:10"; width="200px"><b>{}</b></h4>""".format(
-            project_name
+            encoded.decode("UTF-8"), project_name
         )
         + """
     </head>
