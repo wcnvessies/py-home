@@ -41,7 +41,8 @@ Project Map
 -----------
 Map with al the locations I have carried out projects.
 
-.. image:: ./src/py-home/readme.png
+.. image:: ./src/py-home/img/readme.png
+    :align: center
 
 .. _pyscaffold-notes:
 
