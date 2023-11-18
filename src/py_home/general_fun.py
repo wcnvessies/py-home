@@ -61,6 +61,16 @@ def popup_html(df):
     left_col_color = "#19a7bd"
     right_col_color = "#f2f0d3"
 
+    #     <td style="width: 150px;background-color: """
+    #     + left_col_color
+    #     + """;"><span style="color: #ffffff;">project number</span></td>
+    # <td style="width: 350px;background-color: """
+    #     + right_col_color
+    #     + """;">{}</td>""".format(project_number)
+    #     + """
+    # </tr>
+    # <tr>
+
     html = (
         """<!DOCTYPE html>
     <html>
@@ -73,15 +83,6 @@ def popup_html(df):
     </head>
         <table style="height: 126px; width: 500px;">
     <tbody>
-    <tr>
-    <td style="width: 150px;background-color: """
-        + left_col_color
-        + """;"><span style="color: #ffffff;">project number</span></td>
-    <td style="width: 350px;background-color: """
-        + right_col_color
-        + """;">{}</td>""".format(project_number)
-        + """
-    </tr>
     <tr>
     <td style="width: 150px;background-color: """
         + left_col_color
