@@ -34,11 +34,14 @@ py-home
 =======
 
 
-    Add a short description here!
+    Home built projects.
 
 
-A longer description of your project goes here...
+Project Map
+-----------
+Map with al the locations I have carried out projects.
 
+.. image:: ./src/py-home/readme.png
 
 .. _pyscaffold-notes:
 
