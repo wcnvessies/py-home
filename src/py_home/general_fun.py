@@ -30,16 +30,28 @@ def dhms_from_seconds(seconds):
     return (days, hours, minutes, seconds)
 
 
-def connect_database():
+def connect_database(dbname: str = "home"):
     user = os.getenv("USER_DB")
     password = os.getenv("PASSWORD_DB")
     host = os.getenv("HOST_DB")
     port = "3306"
-    dbname = "home"
 
     connstr = f"mariadb+mariadbconnector://{user}:{quote_plus(password)}@{host}:{port}/{dbname}"
 
-    engine = sqlalchemy.create_engine(connstr, echo=True)
+    engine = sqlalchemy.create_engine(connstr, echo=False)
+    return engine, engine.connect()
+
+
+def connect_database_psql():
+    user = os.getenv("USER_DB_PSQL")
+    password = os.getenv("PASSWORD_DB")
+    host = os.getenv("HOST_DB_PSQL")
+    port = 5432
+    dbname = "home"
+
+    connstr = f"postgresql://{user}:{quote_plus(password)}@{host}:{port}/{dbname}"
+
+    engine = sqlalchemy.create_engine(connstr, echo=False)
     return engine, engine.connect()
 
 
